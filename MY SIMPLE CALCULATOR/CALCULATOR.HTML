@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<title>CALCULATOR</title>
+</head>
+<body>
+<div align="center">
+<h1>MY SIMPLE CALCULATOR</h1>
+<table class="table-bordered border-dark" cellpadding="20" width="600" height="200">
+<thead>
+<tr class="text-center bg-success">
+<th>First Number</th>
+<th>Second Number</th>
+<th>Result</th>
+</tr>
+<tr class="text-center bg-success"> 
+<th><input name="number1" type="text" size=10 id='num1'/></th>
+<th><input name="number2" type="text" size=10 id='num2'/></th>
+<th> <input type="text" id='result' readonly ></th>
+</tr>
+</thead>
+<thead>
+<tr>
+<th class="text-center bg-secondary" colspan="3" >
+<button class="btn btn-light" onclick="showresult('1')">+</button>
+<button class="btn btn-light" onclick="showresult('2')">-</button>
+<button class="btn btn-light" onclick="showresult('3')">*</button>
+<button class="btn btn-light" onclick="showresult('4')">/</button>
+<br>
+<br>
+<button class="btn btn-danger" id='clear' onclick="addEventListener('click')">Clear</button>
+<button class="btn btn-info" onclick="about()">About</button>
+<br>
+</th>
+</tr>
+</thead>
+</table>
+</div>
+<script>
+    function showresult(choise){
+    var n1=parseFloat(document.getElementById('num1').value);
+    var n2=parseFloat(document.getElementById('num2').value);
+    var r;
+    var c=choise;
+    
+    switch(c)
+        {
+        case '1':
+            r=n1+n2;
+            break;
+        case '2':
+            r=n1-n2;
+            break;
+        case '3':
+            r=n1*n2;
+            break;
+        case '4': 
+            r=n1/n2;
+            break;
+        default:
+            break;      
+        }
+    document.getElementById('result').value=r;
+    }
+
+    function myFunction() {
+        document.getElementById("num1").reset();
+        document.getElementById("num2").reset();
+        document.getElementById("result").reset();
+    }
+
+    function about() {
+        alert("Created By:\nJoemari Roberto\nIT-202\n©2021");
+    }
+
+    window.addEventListener('load', () => {
+        const button = document.querySelector('#clear');
+        button.addEventListener('click', () => {
+            document.querySelector('#num1').value = "";
+            document.querySelector('#num2').value = "";
+            document.querySelector('#result').value = "";
+        });
+    }); 
+</script>
+</body>
+</html>
